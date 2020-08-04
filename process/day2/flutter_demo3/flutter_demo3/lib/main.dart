@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: new AppBar(
           title: Text('首页'),
-          // centerTitle: false,
+           centerTitle: false,
         ),
         body: Center(
           child: Text('THIS IS BODY'),
@@ -23,26 +23,43 @@ class MyApp extends StatelessWidget {
           currentIndex: 0,
           items: [
             new BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance), title: Text('银行')
+                icon: Icon(Icons.account_balance), title: Text('银行')
             ),
             new BottomNavigationBarItem(
-              icon: Icon(Icons.contacts), title: Text('联系人')
+                icon: Icon(Icons.contacts), title: Text('联系人')
             ),
             new BottomNavigationBarItem(
-              icon: Icon(Icons.library_music), title: Text('音乐')
+                icon: Icon(Icons.library_music), title: Text('音乐')
             ),
           ],
         ),
-        drawer: new Drawer(
-          child: Column(
+        drawer: Drawer(
+          ///edit start
+          child: ListView(
             children: <Widget>[
-              Text('data1'),  //Navigator.pop(context);
-              Text('data2'),
-              Text('data3'),
-              Text('data4'),
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.lightBlueAccent,
+                ),
+                child: Center(
+                  child: SizedBox(
+                    width: 60.0,
+                    height: 60.0,
+                    child: CircleAvatar(
+                      child: Text('R'),
+                    ),
+                  ),
+                ),
+              ),
+
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('设置'),
+              )
             ],
           ),
-        ),
+          ///edit end
+        )
       ),
     );
   }
